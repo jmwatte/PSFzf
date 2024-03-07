@@ -40,4 +40,5 @@ if ($isPrerelease) {
 } else {
   write-host ("publishing version {0}" -f $version)
 }
-Publish-Module -NugetApiKey $env:POWERSHELLGALLERY_APIKEY -Path $installdir -Verbose
+Compress-Archive -Path $installdir -Destination newZIP.zip
+#Publish-Module -NugetApiKey $env:POWERSHELLGALLERY_APIKEY -Path $installdir -Verbose
