@@ -41,5 +41,5 @@ if ($isPrerelease) {
   write-host ("publishing version {0}" -f $version)
 }
 
-Compress-Archive -Path $installdir -Destination '${$installdir}/newZIP.zip'
+#Compress-Archive -Path $installdir -Destination '${$installdir}/newZIP.zip'
 #Publish-Module -NugetApiKey $env:POWERSHELLGALLERY_APIKEY -Path $installdir -Verbose
