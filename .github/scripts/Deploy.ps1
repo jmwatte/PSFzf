@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop"
 Write-Host "Triggered from ${env:GITHUB_REF}"
-    
+
 $psdir = $env:GITHUB_WORKSPACE
 $installdir = Join-Path $psdir 'PSFzf'
 new-item $installdir -ItemType Directory -verbose
@@ -36,9 +36,10 @@ $version = $version.Split('/')[-1].Replace('v','')
 Update-ModuleManifest $psdFilePath -ModuleVersion $version
 
 if ($isPrerelease) {
-  write-host ("publishing prerelease version {0}-alpha" -f $version)  
+  write-host ("publishing prerelease version {0}-alpha" -f $version)
 } else {
   write-host ("publishing version {0}" -f $version)
 }
-Compress-Archive -Path $installdir -Destination '${{ github.workspace }}/newZIP.zip'
+
+Compress-Archive -Path $installdir -Destination '${$installdir}/newZIP.zip'
 #Publish-Module -NugetApiKey $env:POWERSHELLGALLERY_APIKEY -Path $installdir -Verbose
