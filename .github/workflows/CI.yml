@@ -59,4 +59,9 @@ jobs:
     - name: Run tests
       run: ./.github/scripts/Tests.ps1
       shell: powershell
+    - name: Create and upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+          name: my-artifactDLL
+          path: path/to/your/generated/files
       
