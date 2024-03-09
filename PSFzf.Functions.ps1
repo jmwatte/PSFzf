@@ -76,6 +76,7 @@ function Get-EditorLaunch() {
 		}
 	}
 	elseif ($editor -match 'hx') {
+ Write-Host "in hx"
 		if ($FileList -is [array] -and $FileList.length -gt 1) {
 			for ($i = 0; $i -lt $FileList.Count; $i++) {
 				$FileList[$i] = '"{0}"' -f $(Resolve-Path $FileList[$i].Trim('"'))
@@ -83,6 +84,7 @@ function Get-EditorLaunch() {
 			"$editor$editorOptions {0}" -f ($FileList -join ' ')
 		}
 		else {
+  Write-Host "{0}:{1}" -f $(Resolve-Path $FileList.Trim('"')), $LineNum
 			"$editor$editorOptions ""{0}:{1}""" -f $(Resolve-Path $FileList.Trim('"')), $LineNum
 		}
 	}
@@ -98,6 +100,7 @@ function Get-EditorLaunch() {
 		}
 	}
 	else {
+ Write-Host "in No editor ${$editor}"
 		# select the first file as we don't know if the editor supports opening multiple files from the cmd line
 		if ($FileList -is [array] -and $FileList.length -gt 1) {
 			"$editor$editorOptions ""{0}""" -f $(Resolve-Path $FileList[0].Trim('"'))
