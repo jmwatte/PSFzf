@@ -63,5 +63,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
           name: my-artifactDLL
-          path: path/to/your/generated/files
+          path: PSFzf-Binary/bin/Release/netstandard2.0/*
       
