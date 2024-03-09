@@ -373,7 +373,7 @@ function Invoke-PsFzfRipgrep() {
 			}
 			else {
 				$cmd = Get-EditorLaunch -FileList $fileList -LineNum $lineNum
-				Write-Host "Executing '$cmd'..."
+				Write-Host "Executing '$cmd'... here we are"
 				Invoke-Expression -Command $cmd
 			}
 		}
