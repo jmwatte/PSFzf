@@ -25,3 +25,8 @@ jobs:
           env:
             POWERSHELLGALLERY_APIKEY: ${{ secrets.POWERSHELLGALLERY_APIKEY }}
             GITHUB_PRERELEASE: ${{ github.event.release.prerelease }}
+        - name: Create and upload artifact
+          uses: actions/upload-artifact@v4
+          with:
+           name: my-artifactpackages
+           path: PSFzf/*
